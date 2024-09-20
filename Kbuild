@@ -35,6 +35,13 @@ dtbo-y += nxp/ravelin-nfc.dtbo \
           nxp/ravelin-nfc-atp.dtbo
 endif
 
+ifeq ($(CONFIG_MONA_DTB),y)
+dtbo-y += st/parrot-mona-nfc.dtbo
+endif
+
+ifeq ($(CONFIG_MONAI_DTB),y)
+dtbo-y += st/parrot-monai-nfc.dtbo
+endif
 
 always-y        := $(dtb-y) $(dtbo-y)
 subdir-y        := $(dts-dirs)
