@@ -1,3 +1,4 @@
+DTC_INCLUDE += $(srctree)/../sm7435-modules/qcom/opensource/audio-kernel/include
 
 dtbo-$(CONFIG_ARCH_WAIPIO) += waipio-audio.dtbo \
                  waipio-audio-cdp.dtbo \
@@ -26,7 +27,7 @@ dtbo-$(CONFIG_ARCH_PARROT) += parrot-audio.dtbo \
                  parrot-audio-idp-wcn6755.dtbo \
                  parrot-audio-qrd.dtbo \
                  parrot-audio-qrd-wcn6750.dtbo \
-                 parrot-audio-qrd-wcn6755.dts \
+                 parrot-audio-qrd-wcn6755.dtbo \
                  parrot-audio-atp.dtbo
 else
 ifeq ($(CONFIG_PAROS_DTB),y)
