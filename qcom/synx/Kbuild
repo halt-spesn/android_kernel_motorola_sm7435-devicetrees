@@ -11,3 +11,4 @@ endif
 always-y	:= $(dtbo-y) $(dtb-y)
 subdir-y	:= $(dts-dirs)
 clean-files	:= *.dtb *.dtbo
+DTC_FLAGS += -@

@@ -15,10 +15,12 @@ ifeq ($(CONFIG_ARCH_X1E80100),y)
 dtbo-y += x1e80100-kiwi-cnss.dtbo
 endif
 
+ifneq ($(CONFIG_MMI_DEVICE_DTBS),y)
 ifeq ($(CONFIG_ARCH_RAVELIN),y)
 dtbo-y += ravelin-idp-adrastea.dtbo
 dtbo-y += ravelin-qrd-adrastea.dtbo
 dtbo-y += ravelin-atp-adrastea.dtbo
+endif
 endif
 
 ifeq ($(CONFIG_ARCH_PARROT),y)
@@ -57,3 +59,4 @@ endif
 always-y	:= $(dtb-y) $(dtbo-y)
 subdir-y	:= $(dts-dirs)
 clean-files	:= *.dtb *.dtbo
+DTC_FLAGS += -@

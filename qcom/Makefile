@@ -209,6 +209,7 @@ parrot-overlays-dtb-$(CONFIG_ARCH_PARROT) += $(PARROT_BOARDS) $(PARROT_BASE_DTB)
 endif
 dtb-y += $(parrot-dtb-y)
 
+ifneq ($(CONFIG_MMI_DEVICE_DTBS), y)
 RAVELIN_BASE_DTB += ravelin.dtb ravelinp.dtb ravelin-sg.dtb ravelinp-sg.dtb
 RAVELIN_4GB_BASE_DTB += ravelin-4gb.dtb ravelinp-4gb.dtb ravelin-sg.dtb ravelinp-sg.dtb
 
@@ -227,6 +228,7 @@ parrot-dtb-$(CONFIG_ARCH_RAVELIN) += \
 	$(call add-overlays, $(RAVELIN_BOARDS),$(RAVELIN_BASE_DTB)) \
 	$(call add-overlays, $(RAVELIN_4GB_BOARDS),$(RAVELIN_4GB_BASE_DTB))
 parrot-overlays-dtb-$(CONFIG_ARCH_RAVELIN) += $(RAVELIN_BOARDS) $(RAVELIN_BASE_DTB) $(RAVELIN_4GB_BOARDS) $(RAVELIN_4GB_BASE_DTB)
+endif
 dtb-y += $(parrot-dtb-y)
 
 endif
@@ -378,3 +380,4 @@ always-y        := $(dtb-y)
 subdir-y        := $(dts-dirs)
 subdir-y        += audio bt camera data display dsp eSE graphics mm mmrm mm-sys nfc synx video wlan
 clean-files     := *.dtb *.dtbo
+DTC_FLAGS += -@
